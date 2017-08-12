@@ -353,4 +353,14 @@ endef
 OPENCV3_POST_INSTALL_TARGET_HOOKS += OPENCV3_CLEAN_INSTALL_DATA
 endif
 
+# Dirty hack: Create a symlink (cv2.so) that points to the python library.
+# The library seems to always get a name including the HOSTARCH which is
+# not so good when cross-compiling.
+define OPENCV3_CREATE_SYMLINK_CMD
+	ln -sf cv2.cpython-36m-$(HOSTARCH)-linux-gnu.so \
+		$(TARGET_DIR)/usr/lib/python$(PYTHON3_VERSION_MAJOR)/site-packages/cv2.so
+endef
+
+OPENCV3_POST_INSTALL_TARGET_HOOKS += OPENCV3_CREATE_SYMLINK_CMD
+
 $(eval $(cmake-package))
