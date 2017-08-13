@@ -1,0 +1,7 @@
+config BR2_PACKAGE_SENDEMAIL
+	bool "sendemail"
+	select BR2_PACKAGE_PERL
+	help
+	  SendEmail - Lightweight, command line SMTP email client
+
+	  http://caspian.dotconf.net/menu/Software/SendEmail/
