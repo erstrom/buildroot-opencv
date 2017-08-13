@@ -1,0 +1,42 @@
+#! /bin/sh
+#
+# Starts opencv-home-cam as a background process.
+#
+
+CONFIG=/etc/opencv-home-cam/config.ini
+LOG_CONFIG=/etc/opencv-home-cam/logging.ini
+
+start() {
+	opencv_home_cam -c $CONFIG -l $LOG_CONFIG &
+}
+
+stop() {
+	# Somewhat hackish, but this was only way I could think of :)
+	line=`ps | grep opencv_home_cam`
+	pid=`echo $line | cut -d ' ' -f 1`
+	kill $pid
+	sleep 1
+	echo "OK"
+}
+
+restart() {
+	stop
+	start
+}
+
+case "$1" in
+	start)
+		start
+		;;
+	stop)
+		stop
+		;;
+	restart|reload)
+		restart
+		;;
+	*)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?

@@ -1,0 +1,45 @@
+config BR2_PACKAGE_PYTHON_OPENCV_HOME_CAM
+	bool "python-opencv-home-cam"
+	select BR2_PACKAGE_PYTHON_IMUTILS
+	help
+	  A simple opencv object detection framework.
+
+	  https://github.com/erstrom/opencv-home-cam
+
+if BR2_PACKAGE_PYTHON_OPENCV_HOME_CAM
+
+config BR2_PACKAGE_PYTHON_OPENCV_HOME_CAM_SEND_EMAIL_ACTION
+	bool "Enable sendemail action"
+	default n
+
+if BR2_PACKAGE_PYTHON_OPENCV_HOME_CAM_SEND_EMAIL_ACTION
+
+config BR2_PACKAGE_PYTHON_OPENCV_HOME_CAM_SEND_EMAIL_ACTION_FROM_ADDR
+	string "From-address"
+	default ""
+	help
+	  The address from which the email will be sent.
+
+config BR2_PACKAGE_PYTHON_OPENCV_HOME_CAM_SEND_EMAIL_ACTION_TO_ADDR
+	string "To-address"
+	default ""
+	help
+	  The address(es) to which the email will be sent.
+	  Several addresses shall be separated with spaces.
+
+config BR2_PACKAGE_PYTHON_OPENCV_HOME_CAM_SEND_EMAIL_SMTP_SERVER
+	string "SMTP server"
+	default "smtp.gmail.com:587"
+	help
+	  The SMTP server that sendemail will connect to.
+
+config BR2_PACKAGE_PYTHON_OPENCV_HOME_CAM_SEND_EMAIL_SMTP_PASSWD
+	string "SMTP password"
+	default ""
+	help
+	  The password (clear text) that will be used to authenticate with the
+	  SMTP server.
+
+endif
+
+endif
