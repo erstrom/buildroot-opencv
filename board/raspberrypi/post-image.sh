@@ -28,7 +28,8 @@ __EOF__
 arm_control=0x200
 __EOF__
 		fi
-
+		;;
+		--enable-uart)
 		# Enable uart console
 		if ! grep -qE '^enable_uart=1' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
 			cat << __EOF__ >> "${BINARIES_DIR}/rpi-firmware/config.txt"
