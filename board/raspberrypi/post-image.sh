@@ -50,6 +50,17 @@ dtoverlay=vc4-fkms-v3d
 __EOF__
 		fi
 		;;
+		--enable-camera)
+		# Enable camera
+		if ! grep -qE '^start_x=' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
+			cat << __EOF__ >> "${BINARIES_DIR}/rpi-firmware/config.txt"
+
+# enable camera
+start_x=1
+gpu_mem=128
+__EOF__
+		fi
+		;;
 esac
 
 done
