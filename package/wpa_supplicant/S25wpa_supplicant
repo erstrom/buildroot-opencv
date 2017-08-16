@@ -1,0 +1,39 @@
+#! /bin/sh
+#
+# Starts wpa_supplicant as a background process.
+#
+
+PID_FILE=/tmp/wpa_supplicant.pid
+CFG_FILE=/etc/wpa_supplicant.conf
+
+start() {
+	wpa_supplicant -B -Dnl80211 -iwlan0 -c $CFG_FILE -P $PID_FILE
+}
+
+stop() {
+	pid=`cat $PID_FILE`
+	kill $pid
+	echo "OK"
+}
+
+restart() {
+	stop
+	start
+}
+
+case "$1" in
+	start)
+		start
+		;;
+	stop)
+		stop
+		;;
+	restart|reload)
+		restart
+		;;
+	*)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
