@@ -221,4 +221,9 @@ define WPA_SUPPLICANT_INSTALL_INIT_SYSTEMD
 		$(TARGET_DIR)/usr/lib/systemd/system/wpa_supplicant-wired@.service
 endef
 
+define WPA_SUPPLICANT_INSTALL_INIT_SYSV
+	$(INSTALL) -D -m 755 package/wpa_supplicant/S25wpa_supplicant \
+		$(TARGET_DIR)/etc/init.d
+endef
+
 $(eval $(generic-package))
