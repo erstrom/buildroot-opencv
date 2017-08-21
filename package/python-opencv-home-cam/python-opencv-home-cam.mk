@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-PYTHON_OPENCV_HOME_CAM_VERSION = 0a5549c9fa06c2edecf794778ceb1deaee928d31
+PYTHON_OPENCV_HOME_CAM_VERSION = 7eab4c55dbe424d612418c824bf9316ce5f384e2
 PYTHON_OPENCV_HOME_CAM_SOURCE = opencv-home-cam-$(PYTHON_OPENCV_HOME_CAM_VERSION).tar.gz
 PYTHON_OPENCV_HOME_CAM_SITE = $(call github,erstrom,opencv-home-cam,$(PYTHON_OPENCV_HOME_CAM_VERSION))
 PYTHON_OPENCV_HOME_CAM_SETUP_TYPE = setuptools
