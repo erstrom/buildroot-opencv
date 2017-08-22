@@ -8,6 +8,22 @@ config BR2_PACKAGE_PYTHON_OPENCV_HOME_CAM
 
 if BR2_PACKAGE_PYTHON_OPENCV_HOME_CAM
 
+choice
+
+	bool "Detector to use"
+
+config BR2_PACKAGE_PYTHON_OPENCV_HOME_CAM_HAAR_CASCADE_DETECTOR
+	bool "Haar cascade detector"
+
+config BR2_PACKAGE_PYTHON_OPENCV_HOME_CAM_SIMPLE_MOTION_DETECTOR
+	bool "Simple motion detector"
+	help
+	  The simple motion detector will diff consecutive frames
+	  captured by the camera and check if there are any significant
+	  differences.
+
+endchoice
+
 config BR2_PACKAGE_PYTHON_OPENCV_HOME_CAM_SEND_EMAIL_ACTION
 	bool "Enable sendemail action"
 	default n
