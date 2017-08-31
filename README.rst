@@ -125,7 +125,7 @@ The easiest way of adding the configuration file is to generate it with
         > board/raspberrypi/rootfs-overlay-opencv-home-cam/etc/wpa_supplicant.conf
 
 *wpa_passphrase* takes the SSID and passphrase as arguments and writes
-the configuration tp stdout.
+the configuration to stdout.
 
 .. N.B.
     The wpa_supplicant config file must be named wpa_supplicant.conf and
