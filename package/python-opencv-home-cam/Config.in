@@ -22,6 +22,12 @@ config BR2_PACKAGE_PYTHON_OPENCV_HOME_CAM_SIMPLE_MOTION_DETECTOR
 	  captured by the camera and check if there are any significant
 	  differences.
 
+config BR2_PACKAGE_PYTHON_OPENCV_HOME_CAM_HOG_PEOPLE_DETECTOR
+	bool "HOG people detector"
+	help
+	  The HOG people detector will use the OpenCV built-in HOG
+	  people detector to detect pedestrians.
+
 endchoice
 
 config BR2_PACKAGE_PYTHON_OPENCV_HOME_CAM_SEND_EMAIL_ACTION
